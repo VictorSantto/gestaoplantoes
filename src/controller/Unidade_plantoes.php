@@ -93,7 +93,7 @@
 
 			$daoFactory->beginTransaction();
 			$unidade_plantoes = new model\Unidade_plantoes();
-			$unidade_plantoes->setData(logicNull(controllerDate($request["unidade_plantoes.data"])));
+			$unidade_plantoes->setData(logicNull(controllerDateTime($request["unidade_plantoes.data"])));
 			$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setUnidade($request["unidade_plantoes.unidade"]);
@@ -148,7 +148,7 @@
 			
 			$unidade_plantoes = new model\Unidade_plantoes();
 			$unidade_plantoes->setId($request["unidade_plantoes.id"]);
-			$unidade_plantoes->setData(logicNull(controllerDate($request["unidade_plantoes.data"])));
+			$unidade_plantoes->setData(logicNull(controllerDateTime($request["unidade_plantoes.data"])));
 			$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setUnidade($request["unidade_plantoes.unidade"]);
@@ -219,7 +219,7 @@
 			for ($x = 0; $x < sizeof($unidade_plantoesDao); $x++) {
 				$unidade_plantoes = new model\Unidade_plantoes();
 				$unidade_plantoes->setId($unidade_plantoesDao[$x]["unidade_plantoes.id"]);
-				$unidade_plantoes->setData(logicNull(controllerDate($unidade_plantoesDao[$x]["unidade_plantoes.data"])));
+				$unidade_plantoes->setData(logicNull(controllerDateTime($unidade_plantoesDao[$x]["unidade_plantoes.data"])));
 			$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setUnidade($unidade_plantoesDao[$x]["unidade_plantoes.unidade"]);
@@ -229,7 +229,7 @@
 			}
 			$unidade_plantoes = new model\Unidade_plantoes();
 			$unidade_plantoes->setId($call[0]["unidade_plantoes.id"]);
-			$unidade_plantoes->setData(logicNull(controllerDate($call[0]["unidade_plantoes.data"])));
+			$unidade_plantoes->setData(logicNull(controllerDateTime($call[0]["unidade_plantoes.data"])));
 			$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_plantoes->setUnidade($call[0]["unidade_plantoes.unidade"]);
@@ -406,7 +406,7 @@
 					echo $view->json($response);
 				} else {
 					$unidade_plantoes = new model\Unidade_plantoes();
-					$unidade_plantoes->setData(logicNull(controllerDate($form[0])));
+					$unidade_plantoes->setData(logicNull(controllerDateTime($form[0])));
 					$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_plantoes->setUnidade($form[1]);
@@ -439,7 +439,7 @@
 				} else {
 					$unidade_plantoes = new model\Unidade_plantoes();
 					$unidade_plantoes->setId($code);
-					$unidade_plantoes->setData(logicNull(controllerDate($form[0])));
+					$unidade_plantoes->setData(logicNull(controllerDateTime($form[0])));
 					$unidade_plantoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_plantoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_plantoes->setUnidade($form[1]);

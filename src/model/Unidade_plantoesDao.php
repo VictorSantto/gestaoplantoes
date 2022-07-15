@@ -290,7 +290,7 @@
 
 			while ($row = $result->fetch_assoc()) {
 				$this->setResponse($line, "unidade_plantoes.id", $row["unidade_plantoes.id"]);
-				$this->setResponse($line, "unidade_plantoes.data", modelDate($row["unidade_plantoes.data"]));
+				$this->setResponse($line, "unidade_plantoes.data", modelDateTime($row["unidade_plantoes.data"]));
 				$this->setResponse($line, "unidade_plantoes.cadastrado", modelDateTime($row["unidade_plantoes.cadastrado"]));
 				$this->setResponse($line, "unidade_plantoes.modificado", modelDateTime($row["unidade_plantoes.modificado"]));
 				$this->setResponse($line, "unidade_plantoes.unidade", $row["unidade_plantoes.unidade"]);

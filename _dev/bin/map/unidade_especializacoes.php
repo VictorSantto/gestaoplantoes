@@ -28,7 +28,7 @@
 	 * photo, photoWithPosition, position, upload, order, link
 	 */ 
 	$fields = array("id" => "integer",
-			"unidade_especializacao" => "string32",
+			"especializacao" => "string32",
 			"cadastrado" => "new",
 			"modificado" => "now"
 	);

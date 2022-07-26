@@ -354,12 +354,13 @@
 					 * Insert your foreign key here
 					 */
 					if ($where != "")
-						$where .= " AND perfil_tela.@_FOREIGN_KEY = " . $base;
+						$where .= " AND perfil_tela.perfil = " . $base;
 					else 
-						$where = "perfil_tela.@_FOREIGN_KEY = " . $base;
+						$where = "perfil_tela.perfil = " . $base;
 						
 					$daoFactory->beginTransaction();
 					$response["titles"] = $daoFactory->getTelasDao()->read("telas.identificador = \"" . $screen . "\"", "", true);
+					$response["perfis"] = $daoFactory->getPerfisDao()->read("perfis.id = " . $base, "", true);
 					$response["perfil_tela"] = $daoFactory->getPerfil_telaDao()->read($where, $limit, true);
 					if (!is_array($response["perfil_tela"])) {
 						$response["data_not_found"][0]["value"] = "<p>Não possui registro.</p>";

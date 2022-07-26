@@ -19,13 +19,13 @@
 	$where = "";
 	
 	if ($search != "")
-		$where = "unidade_especializacoes.unidade_especializacao LIKE \"%" . $search . "%\"";	
+		$where = "unidade_especializacoes.especializacao LIKE \"%" . $search . "%\"";	
 		
 	if ($code != "")
 		$where = "unidade_especializacoes.id = " . $code;
 	
 	if (isset($_GET["friendly"]))
-		$where = "unidade_especializacoes.unidade_especializacao = \"" . removeLine($_GET["friendly"]) . "\"";	
+		$where = "unidade_especializacoes.especializacao = \"" . removeLine($_GET["friendly"]) . "\"";	
 		
 	$limit = "";	
 	
@@ -68,7 +68,7 @@
 		$daoFactory->close();
 		
 		if (isset($_GET["friendly"]))
-			$view->setTitle($response["unidade_especializacoes"][0]["unidade_especializacoes.unidade_especializacao"]);
+			$view->setTitle($response["unidade_especializacoes"][0]["unidade_especializacoes.especializacao"]);
 
 		echo $view->parse($_DOCUMENT_ROOT . $_PACKAGE . "/html/header.html", $response);
 		
@@ -93,7 +93,7 @@
 
 			$daoFactory->beginTransaction();
 			$unidade_especializacoes = new model\Unidade_especializacoes();
-			$unidade_especializacoes->setUnidade_especializacao(logicNull($request["unidade_especializacoes.unidade_especializacao"]));
+			$unidade_especializacoes->setEspecializacao(logicNull($request["unidade_especializacoes.especializacao"]));
 			$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setUnidade($request["unidade_especializacoes.unidade"]);
@@ -148,7 +148,7 @@
 			
 			$unidade_especializacoes = new model\Unidade_especializacoes();
 			$unidade_especializacoes->setId($request["unidade_especializacoes.id"]);
-			$unidade_especializacoes->setUnidade_especializacao(logicNull($request["unidade_especializacoes.unidade_especializacao"]));
+			$unidade_especializacoes->setEspecializacao(logicNull($request["unidade_especializacoes.especializacao"]));
 			$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setUnidade($request["unidade_especializacoes.unidade"]);
@@ -219,7 +219,7 @@
 			for ($x = 0; $x < sizeof($unidade_especializacoesDao); $x++) {
 				$unidade_especializacoes = new model\Unidade_especializacoes();
 				$unidade_especializacoes->setId($unidade_especializacoesDao[$x]["unidade_especializacoes.id"]);
-				$unidade_especializacoes->setUnidade_especializacao(logicNull($unidade_especializacoesDao[$x]["unidade_especializacoes.unidade_especializacao"]));
+				$unidade_especializacoes->setEspecializacao(logicNull($unidade_especializacoesDao[$x]["unidade_especializacoes.especializacao"]));
 			$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setUnidade($unidade_especializacoesDao[$x]["unidade_especializacoes.unidade"]);
@@ -229,7 +229,7 @@
 			}
 			$unidade_especializacoes = new model\Unidade_especializacoes();
 			$unidade_especializacoes->setId($call[0]["unidade_especializacoes.id"]);
-			$unidade_especializacoes->setUnidade_especializacao(logicNull($call[0]["unidade_especializacoes.unidade_especializacao"]));
+			$unidade_especializacoes->setEspecializacao(logicNull($call[0]["unidade_especializacoes.especializacao"]));
 			$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 			$unidade_especializacoes->setUnidade($call[0]["unidade_especializacoes.unidade"]);
@@ -406,7 +406,7 @@
 					echo $view->json($response);
 				} else {
 					$unidade_especializacoes = new model\Unidade_especializacoes();
-					$unidade_especializacoes->setUnidade_especializacao(logicNull($form[0]));
+					$unidade_especializacoes->setEspecializacao(logicNull($form[0]));
 					$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_especializacoes->setUnidade($form[1]);
@@ -439,7 +439,7 @@
 				} else {
 					$unidade_especializacoes = new model\Unidade_especializacoes();
 					$unidade_especializacoes->setId($code);
-					$unidade_especializacoes->setUnidade_especializacao(logicNull($form[0]));
+					$unidade_especializacoes->setEspecializacao(logicNull($form[0]));
 					$unidade_especializacoes->setCadastrado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_especializacoes->setModificado(date("Y-m-d H:i:s", (time() - 3600 * 3)));
 					$unidade_especializacoes->setUnidade($form[1]);

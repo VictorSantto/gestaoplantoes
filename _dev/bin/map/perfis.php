@@ -48,7 +48,7 @@
 	);
 				
 	// Set the table if this screen call another
-	$call = "";
+	$call = "perfil_tela";
 	
 	// Set the column for answer after the call
 	$answer = "";

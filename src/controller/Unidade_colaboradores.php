@@ -12,6 +12,7 @@
 	use src\model;	 
 	
 	require_once($_DOCUMENT_ROOT . "/lib/getz/Activator.php");
+
 	
 	/*
 	 * Filters
@@ -517,5 +518,7 @@
 			}
 		}
 	}
+
+	
 
 ?>

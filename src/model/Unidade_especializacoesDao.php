@@ -19,7 +19,7 @@
 		 * Constant variables
 		 */
 		private $create = "INSERT INTO unidade_especializacoes (
-				unidade_especializacao
+				especializacao
 				, cadastrado
 				, modificado
 				, unidade
@@ -27,7 +27,7 @@
 				
 		public $read = 
 				"unidade_especializacoes.id AS \"unidade_especializacoes.id\"
-				, unidade_especializacoes.unidade_especializacao AS \"unidade_especializacoes.unidade_especializacao\"
+				, unidade_especializacoes.especializacao AS \"unidade_especializacoes.especializacao\"
 				, unidade_especializacoes.cadastrado AS \"unidade_especializacoes.cadastrado\"
 				, unidade_especializacoes.modificado AS \"unidade_especializacoes.modificado\"
 				, unidade_especializacoes.unidade AS \"unidade_especializacoes.unidade\"
@@ -62,7 +62,7 @@
 		 */
 		public function setCreate($unidade_especializacoes) {		
 			$this->sql = $this->create . " (\"" . 
-					$unidade_especializacoes->getUnidade_especializacao() .
+					$unidade_especializacoes->getEspecializacao() .
 					"\", \"" . $unidade_especializacoes->getCadastrado() .
 					"\", \"" . $unidade_especializacoes->getModificado() .
 					"\", \"" . $unidade_especializacoes->getUnidade() .
@@ -108,7 +108,7 @@
 			
 			$this->sql = $this->update . 
 					" id = \"" . $unidade_especializacoes->getId() . 
-					"\", unidade_especializacao = \"" . $unidade_especializacoes->getUnidade_especializacao() . 
+					"\", especializacao = \"" . $unidade_especializacoes->getEspecializacao() . 
 					"\", modificado = \"" . $unidade_especializacoes->getModificado() . 
 					"\", unidade = \"" . $unidade_especializacoes->getUnidade() . 
 					"\"" . $this->getWhere();
@@ -290,10 +290,10 @@
 
 			while ($row = $result->fetch_assoc()) {
 				$this->setResponse($line, "unidade_especializacoes.id", $row["unidade_especializacoes.id"]);
-				$this->setResponse($line, "unidade_especializacoes.unidade_especializacao", $row["unidade_especializacoes.unidade_especializacao"]);
-				$this->setResponse($line, "unidade_especializacoes.unidade_especializacao.format.json", modelDoubleQuotesJson($row["unidade_especializacoes.unidade_especializacao"]));
-				$this->setResponse($line, "unidade_especializacoes.unidade_especializacao.format", modelDoubleQuotes($row["unidade_especializacoes.unidade_especializacao"]));
-				$this->setResponse($line, "unidade_especializacoes.unidade_especializacao.view", addLine($row["unidade_especializacoes.unidade_especializacao"]));
+				$this->setResponse($line, "unidade_especializacoes.especializacao", $row["unidade_especializacoes.especializacao"]);
+				$this->setResponse($line, "unidade_especializacoes.especializacao.format.json", modelDoubleQuotesJson($row["unidade_especializacoes.especializacao"]));
+				$this->setResponse($line, "unidade_especializacoes.especializacao.format", modelDoubleQuotes($row["unidade_especializacoes.especializacao"]));
+				$this->setResponse($line, "unidade_especializacoes.especializacao.view", addLine($row["unidade_especializacoes.especializacao"]));
 				$this->setResponse($line, "unidade_especializacoes.cadastrado", modelDateTime($row["unidade_especializacoes.cadastrado"]));
 				$this->setResponse($line, "unidade_especializacoes.modificado", modelDateTime($row["unidade_especializacoes.modificado"]));
 				$this->setResponse($line, "unidade_especializacoes.unidade", $row["unidade_especializacoes.unidade"]);
@@ -357,7 +357,7 @@
 
 			while ($row = $result->fetch_assoc()) {
 				$this->setResponse($size, "unidade_especializacoes.id", $row["unidade_especializacoes.id"]);
-				$this->setResponse($size, "unidade_especializacoes.unidade_especializacao", $row["unidade_especializacoes.unidade_especializacao"]);
+				$this->setResponse($size, "unidade_especializacoes.especializacao", $row["unidade_especializacoes.especializacao"]);
 			
 				if ($row["unidade_especializacoes.id"] == $selected)
 					$this->setResponse($size, "unidade_especializacoes.selected", "selected");
@@ -386,7 +386,7 @@
 
 			while ($row = $result->fetch_assoc()) {
 				$this->setResponse($size, "unidade_especializacoes.id", $row["unidade_especializacoes.id"]);
-				$this->setResponse($size, "unidade_especializacoes.unidade_especializacao", $row["unidade_especializacoes.unidade_especializacao"]);
+				$this->setResponse($size, "unidade_especializacoes.especializacao", $row["unidade_especializacoes.especializacao"]);
 				$this->setResponse($size, "unidade_especializacoes.selected", "selected");
 					
 				$size++;

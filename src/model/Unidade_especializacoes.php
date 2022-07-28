@@ -12,7 +12,7 @@
 	class Unidade_especializacoes {
 			
 		private $id;
-		private $unidade_especializacao;
+		private $especializacao;
 		private $cadastrado;
 		private $modificado;
 		private $unidade;
@@ -27,12 +27,12 @@
 			return $this->id;
 		}
 					
-		public function setUnidade_especializacao($unidade_especializacao) {
-			$this->unidade_especializacao = $unidade_especializacao;
+		public function setEspecializacao($especializacao) {
+			$this->especializacao = $especializacao;
 		}
 		
-		public function getUnidade_especializacao() {
-			return $this->unidade_especializacao;
+		public function getEspecializacao() {
+			return $this->especializacao;
 		}
 					
 		public function setCadastrado($cadastrado) {

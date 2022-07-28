@@ -304,7 +304,7 @@
 				$this->setResponse($line, "unidade_plantao_unidade_colaborador.cadastrado", modelDateTime($row["unidade_plantao_unidade_colaborador.cadastrado"]));
 				$this->setResponse($line, "unidade_plantao_unidade_colaborador.modificado", modelDateTime($row["unidade_plantao_unidade_colaborador.modificado"]));
 				$this->setResponse($line, "unidade_plantao_unidade_colaborador.unidade_plantao", $row["unidade_plantao_unidade_colaborador.unidade_plantao"]);
-				$this->setResponse($line, "unidade_plantoes.unidade_plantao", $row["unidade_plantoes.unidade_plantao"]);
+				$this->setResponse($line, "unidade_plantoes.unidade", $row["unidade_plantoes.unidade"]);
 				$this->setResponse($line, "unidade_plantao_unidade_colaborador.unidade_colaborador", $row["unidade_plantao_unidade_colaborador.unidade_colaborador"]);
 				$this->setResponse($line, "unidade_colaboradores.unidade_colaborador", $row["unidade_colaboradores.unidade_colaborador"]);
 			

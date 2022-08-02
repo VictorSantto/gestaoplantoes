@@ -14,7 +14,7 @@
 	require_once($_DOCUMENT_ROOT . "/lib/getz/Activator.php");
 
 	if ($method == "page") {
-		$response["data"] = callAPI("/plantoes-autorizados/data-plantao/", []);
+		$response["data"] = callAPI("/plantoes-autorizados?page=0&size=10", []);
 		$response["content"] = responseAPI($response["data"][0]["content"]);
 	 /*	var_dump($response["content"]); */ 
 		echo $view->parse($_DOCUMENT_ROOT . $_PACKAGE . "/html/header.html");

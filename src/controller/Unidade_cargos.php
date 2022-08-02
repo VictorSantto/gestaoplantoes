@@ -13,6 +13,44 @@
 	 
 	require_once($_DOCUMENT_ROOT . "/lib/getz/Activator.php");
 
+	/*
+	 * Filters
+	 */
+	$where = "atividades-profissionais/";
+	
+	if ($search != "searchExample()")
+		$where = "unidade_cargos.unidade_cargo LIKE \"%" . $search . "%\"";	
+		
+	if ($code != "")
+		$where = "unidade_cargos.id = " . $code;
+	
+	if (isset($_GET["friendly"]))
+		$where = "unidade_caros.unidade_cargo = \"" . removeLine($_GET["friendly"]) . "\"";	
+		
+	$limit = "";	
+	
+	if ($order != "") {
+		$o = explode("<gz>", $order);
+		if ($method == "stateReadAll" || $method == "stateCalledAll") {
+			$limit = $o[0] . " " . $o[1];
+		} else {
+			$limit = $o[0] . " " . $o[1] . " LIMIT " . 
+					(($position * $itensPerPage) - $itensPerPage) . ", " . $itensPerPage;
+		}		
+	} else {
+		if ($method == "stateReadAll" || $method == "stateCalledAll") {
+			$limit = "unidade_colaboradores.ordem ASC";	
+		} else {
+			if ($position > 0 && $itensPerPage > 0) {
+				$limit = "unidade_colaboradores.id DESC LIMIT " . 
+						(($position * $itensPerPage) - $itensPerPage) . ", " . $itensPerPage;	
+			}
+		}
+	}
+	
+	/*
+	 * list
+	 */
 	if ($method == "page") {
 		$response["data"] = callAPI("/atividades-profissionais?page=0&size=10", []);
 		$response["content"] = responseAPI($response["data"][0]["content"]);
